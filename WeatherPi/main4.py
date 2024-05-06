@@ -123,13 +123,23 @@ def main():
         #             break  # Exit the loop if condition is no longer met
 
         def blink_leds_cloudy():
+            #for review board 2024
             for i in range(20):
                 led_pin_1.value = True
+                time.sleep(0.2)
                 led_pin_2.value = True
-                time.sleep(0.5)
                 led_pin_1.value = False
+                time.sleep(0.2)
                 led_pin_2.value = False
-                time.sleep(0.5)
+                time.sleep(0.2)
+            
+            # for i in range(20):
+            #     led_pin_1.value = True
+            #     led_pin_2.value = True
+            #     time.sleep(0.5)
+            #     led_pin_1.value = False
+            #     led_pin_2.value = False
+            #     time.sleep(0.5)
                 # # Check if the weather icon has changed or condition is no longer met
                 # if weather_data['weather'][0]['icon'] not in ['03d', '03n', '04d', '04n', '50d', '50n']:
                 #     break  # Exit the loop if condition is no longer met
