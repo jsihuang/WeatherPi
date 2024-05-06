@@ -125,17 +125,17 @@ def main():
         #         if '04' not in weather_data['weather'][0]['icon']:
         #             break  # Exit the loop if condition is no longer met
 
-        # def blink_leds_cloudy():
-        #     while True:
-        #         led_pin_1.value = True
-        #         led_pin_2.value = True
-        #         time.sleep(0.5)
-        #         led_pin_1.value = False
-        #         led_pin_2.value = False
-        #         time.sleep(0.5)
-        #         # Check if the weather icon has changed or condition is no longer met
-        #         if weather_data['weather'][0]['icon'] not in ['03d', '03n', '04d', '04n', '50d', '50n']:
-        #             break  # Exit the loop if condition is no longer met
+        def blink_leds_cloudy():
+            while True:
+                led_pin_1.value = True
+                led_pin_2.value = True
+                time.sleep(0.5)
+                led_pin_1.value = False
+                led_pin_2.value = False
+                time.sleep(0.5)
+                # Check if the weather icon has changed or condition is no longer met
+                if weather_data['weather'][0]['icon'] not in ['03d', '03n', '04d', '04n', '50d', '50n']:
+                    break  # Exit the loop if condition is no longer met
 
         # def blink_leds_rain()
         #     while True:
@@ -155,10 +155,10 @@ def main():
         #     # Blinking function for cloudy
         #     blink_leds_clear()
 
-        #  # Check if weather icon indicates cloudy (scattered, broken, mist)
-        # elif weather_data['weather'][0]['icon'] in ['03d', '03n', '04d', '04n', '50d', '50n']:
-        #     # Blinking function for cloudy
-        #     blink_leds_cloudy()
+         # Check if weather icon indicates cloudy (scattered, broken, mist)
+        if weather_data['weather'][0]['icon'] in ['03d', '03n', '04d', '04n', '50d', '50n']:
+            # Blinking function for cloudy
+            blink_leds_cloudy()
         
         # # Check if weather icon indicates rainy (shower, rain, thunderstorm, snow)
         # elif weather_data['weather'][0]['icon'] in ['09d', '09n', '10d', '10n', '11d', '11n', '13d', '13n']:
