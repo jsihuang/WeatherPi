@@ -193,9 +193,9 @@ def main():
         
         # Paste the Icon
         # Image.Image.paste(image, icon, (50, 0))
-        draw.bitmap(icon, (0, 20), icon)
-        draw.bitmap(icon_thermometer, (5, 100), icon_thermometer)
-        draw.bitmap(icon_water, (5, 200), icon_water) #130
+        image.paste(icon, (0, 20), icon)
+        image.paste(icon_thermometer, (5, 100), icon_thermometer)
+        image.paste(icon_water, (5, 200), icon_water) #130
 
         # Display the image on the TFT screen
         display.image(image)
