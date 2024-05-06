@@ -129,9 +129,6 @@ def main():
         icon = Image.open(icon_path)
         icon = icon.resize((80, 80), Image.BICUBIC)
         
-        
-        print(icon_path)
-        
         # get UI icons
         icon_thermometer = Image.open("./Icons/thermometer.png")
         icon_thermometer = icon_thermometer.resize((20, 20), Image.BICUBIC)
@@ -163,6 +160,12 @@ def main():
 
         #run blinking function
         # icon_urls.get(icon_code)[1]
+
+        # Logs
+        print(icon_path)
+        print(f"Temperature: {temperature_celsius:.2f}°C")
+        print(f"Humidity: {humidity}%")
+        print(f"Weather: {weather_description}")
 
     else:
         print("Weather data not found.")
