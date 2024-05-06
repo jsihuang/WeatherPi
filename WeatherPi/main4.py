@@ -169,7 +169,7 @@ def main():
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf", 18)
         
         draw.text((5, 10), f"{weather_description}",font=font, fill=(255, 255, 255))
-        draw.text((50, 1003), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
+        draw.text((50, 103), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
         draw.text((50, 130), f"{humidity}%", font=font, fill=(255, 255, 255))
         
         # Paste the Icon
