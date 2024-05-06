@@ -52,5 +52,5 @@ def clear():
 	
 
 while True: 
-	forever()
+	drizzle()
 
