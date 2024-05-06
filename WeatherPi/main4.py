@@ -61,7 +61,7 @@ icon_urls = {
     "02n": "https://openweathermap.org/img/wn/02n.png",
     "03d": "https://openweathermap.org/img/wn/03d.png",
     "03n": "https://openweathermap.org/img/wn/03n.png",
-    "04d": ["/04d.png", rain()],
+    "04d": "/04d.png", #rain()
     "04n": "https://openweathermap.org/img/wn/04n.png",
     "09d": "https://openweathermap.org/img/wn/09d.png",
     "09n": "https://openweathermap.org/img/wn/09n.png",
@@ -135,7 +135,7 @@ def main():
         display.image(image)
 
         #run blinking function
-        icon_urls.get(icon_code)[1]
+        # icon_urls.get(icon_code)[1]
 
     else:
         print("Weather data not found.")
