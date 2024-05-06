@@ -174,7 +174,7 @@ def main():
         
         # Paste the Icon
         # Image.Image.paste(image, icon, (50, 0))
-        image.paste(icon, (0, 20), icon)
+        image.paste(icon, (20, 20), icon)
         image.paste(icon_thermometer, (15, 100), icon_thermometer)
         image.paste(icon_water, (15, 130), icon_water)
 
