@@ -107,16 +107,20 @@ def main():
         icon_file = icon_urls.get(icon_code) #[0]
         
 
-        # Blinking functions 
+        # Check if weather icon indicates '04' (cloudy) weather
         if '04' in weather_data['weather'][0]['icon']:
-            led_pin_1.value = True
-            time.sleep(0.2)
-            led_pin_2.value = True
-            time.sleep(0.2)
-            led_pin_1.value = False
-            time.sleep(0.2)
-            led_pin_2.value = False
-            time.sleep(0.2)
+            # Loop to blink the LEDs for '04' weather
+            while True:
+                led_pin_1.value = True
+                led_pin_2.value = True
+                time.sleep(0.2)
+                led_pin_1.value = False
+                led_pin_2.value = False
+                time.sleep(0.2)
+                # Check if the weather icon has changed or condition is no longer met
+                if '04' not in weather_data['weather'][0]['icon']:
+                    break  # Exit the loop if condition is no longer met
+
         
         # format weather icon
         icon_path = icon_dir + icon_file
