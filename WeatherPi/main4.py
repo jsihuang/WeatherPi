@@ -130,10 +130,10 @@ def main():
         icon = icon.resize((80, 80), Image.BICUBIC)
         
         # get UI icons
-        icon_thermometer = Image.open("./Icons/thermometer.png")
+        icon_thermometer = Image.open("./Icons/thermometer_invert.png")
         icon_thermometer = icon_thermometer.resize((20, 20), Image.BICUBIC)
-        icon_wind = Image.open("./Icons/wind.png")
-        icon_wind = icon_wind.resize((20, 20), Image.BICUBIC)
+        icon_water = Image.open("./Icons/water-droplet_invert.png")
+        icon_water = icon_water.resize((20, 20), Image.BICUBIC)
         
         # Create a blank image
         image = Image.new("RGB", (screen_width, screen_height))
