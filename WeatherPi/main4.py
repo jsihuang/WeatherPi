@@ -215,4 +215,4 @@ def main():
 # Main loop
 while True:
     main()
-    time.sleep(60)  # Update weather information every 60 seconds
+    time.sleep(2)  # Update weather information every 60 seconds
