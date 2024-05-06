@@ -169,14 +169,14 @@ def main():
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf", 18)
         
         draw.text((5, 10), f"{weather_description}",font=font, fill=(255, 255, 255))
-        draw.text((50, 106), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
+        draw.text((50, 1003), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
         draw.text((50, 130), f"{humidity}%", font=font, fill=(255, 255, 255))
         
         # Paste the Icon
         # Image.Image.paste(image, icon, (50, 0))
         image.paste(icon, (0, 20), icon)
-        image.paste(icon_thermometer, (5, 100), icon_thermometer)
-        image.paste(icon_water, (5, 130), icon_water)
+        image.paste(icon_thermometer, (15, 100), icon_thermometer)
+        image.paste(icon_water, (15, 130), icon_water)
 
         # Display the image on the TFT screen
         display.image(image)
