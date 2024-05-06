@@ -5,12 +5,12 @@ from adafruit_rgb_display import st7735
 import requests
 import time
 
-import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
-from time import sleep # Import the sleep function from the time module
+# import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+# from time import sleep # Import the sleep function from the time module
 
-GPIO.setwarnings(False) # Ignore warning for now
-GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and set initial value to low (off)
-GPIO.setup(10, GPIO.OUT, initial=GPIO.LOW)
+#GPIO.setwarnings(False) # Ignore warning for now
+#GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and set initial value to low (off)
+#GPIO.setup(10, GPIO.OUT, initial=GPIO.LOW)
 
 
 # Define TFT screen dimensions
@@ -36,21 +36,21 @@ weather_url = url.format(lat, lon, api_key)
 icon_dir = "./Icons"
 
 # Blinking functions 
-def rain():
-	GPIO.output(8, GPIO.HIGH) # Turn on
-	sleep(0.2) # Sleep for 1 second
-	GPIO.output(10, GPIO.HIGH) # Turn on
-	GPIO.output(8, GPIO.LOW) # Turn on
-	sleep(0.2) # Sleep for 1 second
-	GPIO.output(10, GPIO.LOW) # Turn on
+# def rain():
+# 	GPIO.output(8, GPIO.HIGH) # Turn on
+# 	sleep(0.2) # Sleep for 1 second
+# 	GPIO.output(10, GPIO.HIGH) # Turn on
+# 	GPIO.output(8, GPIO.LOW) # Turn on
+# 	sleep(0.2) # Sleep for 1 second
+# 	GPIO.output(10, GPIO.LOW) # Turn on
 
-def drizzle():
-	GPIO.output(8, GPIO.HIGH) # Turn on
-	sleep(2) # Sleep for 1 second
-	GPIO.output(10, GPIO.HIGH) # Turn on
-	GPIO.output(8, GPIO.LOW) # Turn off
-	sleep(2) # Sleep for 1 second
-	GPIO.output(10, GPIO.LOW) # Turn on
+# def drizzle():
+# 	GPIO.output(8, GPIO.HIGH) # Turn on
+# 	sleep(2) # Sleep for 1 second
+# 	GPIO.output(10, GPIO.HIGH) # Turn on
+# 	GPIO.output(8, GPIO.LOW) # Turn off
+# 	sleep(2) # Sleep for 1 second
+# 	GPIO.output(10, GPIO.LOW) # Turn on
 	
 
 # Dictionary mapping weather icon codes to icon URLs
