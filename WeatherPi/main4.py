@@ -114,9 +114,10 @@ def main():
             # Loop to blink the LEDs for '04' weather
             while True:
                 led_pin_1.value = True
-                led_pin_2.value = True
                 time.sleep(0.2)
+                led_pin_2.value = True
                 led_pin_1.value = False
+                time.sleep(0.2)
                 led_pin_2.value = False
                 time.sleep(0.2)
                 # Check if the weather icon has changed or condition is no longer met
