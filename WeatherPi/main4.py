@@ -66,24 +66,24 @@ icon_dir = "./Icons"
 
 # Dictionary mapping weather icon codes to icon URLs
 icon_urls = {
-    "01d": "https://openweathermap.org/img/wn/01d.png",
-    "01n": "https://openweathermap.org/img/wn/01n.png",
-    "02d": "https://openweathermap.org/img/wn/02d.png",
-    "02n": "https://openweathermap.org/img/wn/02n.png",
-    "03d": "https://openweathermap.org/img/wn/03d.png",
-    "03n": "https://openweathermap.org/img/wn/03n.png",
-    "04d": "/04d.png", #rain()
-    "04n": "https://openweathermap.org/img/wn/04n.png",
-    "09d": "https://openweathermap.org/img/wn/09d.png",
-    "09n": "https://openweathermap.org/img/wn/09n.png",
-    "10d": "https://openweathermap.org/img/wn/10d.png",
-    "10n": "https://openweathermap.org/img/wn/10n.png",
-    "11d": "https://openweathermap.org/img/wn/11d.png",
-    "11n": "https://openweathermap.org/img/wn/11n.png",
-    "13d": "https://openweathermap.org/img/wn/13d.png",
-    "13n": "https://openweathermap.org/img/wn/13n.png",
-    "50d": "https://openweathermap.org/img/wn/50d.png",
-    "50n": "https://openweathermap.org/img/wn/50n.png"
+    "01d": "/01d.png",
+    "01n": "/01n.png",
+    "02d": "/02d.png",
+    "02n": "/02n.png",
+    "03d": "/03d.png",
+    "03n": "03n.png",
+    "04d": "/04d.png",
+    "04n": "/04n.png",
+    "09d": "/09d.png",
+    "09n": "/09n.png",
+    "10d": "/10d.png",
+    "10n": "/10n.png",
+    "11d": "/11d.png",
+    "11n": "/11n.png",
+    "13d": "/13d.png",
+    "13n": "/13n.png",
+    "50d": "/50d.png",
+    "50n": "/50n.png"
 }
 
 
@@ -169,12 +169,12 @@ def main():
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf", 18)
         
         draw.text((5, 10), f"{weather_description}",font=font, fill=(255, 255, 255))
-        draw.text((50, 103), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
+        draw.text((50, 100), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
         draw.text((50, 130), f"{humidity}%", font=font, fill=(255, 255, 255))
         
         # Paste the Icon
         # Image.Image.paste(image, icon, (50, 0))
-        image.paste(icon, (20, 20), icon)
+        image.paste(icon, (24, 24), icon)
         image.paste(icon_thermometer, (15, 100), icon_thermometer)
         image.paste(icon_water, (15, 130), icon_water)
 
