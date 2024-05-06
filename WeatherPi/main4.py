@@ -61,7 +61,8 @@ icon_dir = "./Icons"
 # 	sleep(2) # Sleep for 1 second
 # 	GPIO.output(10, GPIO.LOW) # Turn on
 
-	
+
+    
 
 # Dictionary mapping weather icon codes to icon URLs
 icon_urls = {
@@ -109,20 +110,60 @@ def main():
         icon_file = icon_urls.get(icon_code) #[0]
         
 
-        # Check if weather icon indicates '04' (cloudy) weather
-        if '04' in weather_data['weather'][0]['icon']:
-            # Loop to blink the LEDs for '04' weather
-            while True:
-                led_pin_1.value = True
-                time.sleep(0.2)
-                led_pin_2.value = True
-                led_pin_1.value = False
-                time.sleep(0.2)
-                led_pin_2.value = False
-                time.sleep(0.2)
-                # Check if the weather icon has changed or condition is no longer met
-                if '04' not in weather_data['weather'][0]['icon']:
-                    break  # Exit the loop if condition is no longer met
+        # # Check if weather icon indicates '04' (cloudy) weather
+        # if '04' in weather_data['weather'][0]['icon']:  
+        #     # Loop to blink the LEDs for '04' weather
+        #     while True:
+        #         led_pin_1.value = True
+        #         time.sleep(0.2)
+        #         led_pin_2.value = True
+        #         led_pin_1.value = False
+        #         time.sleep(0.2)
+        #         led_pin_2.value = False
+        #         time.sleep(0.2)
+        #         # Check if the weather icon has changed or condition is no longer met
+        #         if '04' not in weather_data['weather'][0]['icon']:
+        #             break  # Exit the loop if condition is no longer met
+
+        # def blink_leds_cloudy():
+        #     while True:
+        #         led_pin_1.value = True
+        #         led_pin_2.value = True
+        #         time.sleep(0.5)
+        #         led_pin_1.value = False
+        #         led_pin_2.value = False
+        #         time.sleep(0.5)
+        #         # Check if the weather icon has changed or condition is no longer met
+        #         if weather_data['weather'][0]['icon'] not in ['03d', '03n', '04d', '04n', '50d', '50n']:
+        #             break  # Exit the loop if condition is no longer met
+
+        # def blink_leds_rain()
+        #     while True:
+        #         led_pin_1.value = True
+        #         time.sleep(0.2)
+        #         led_pin_2.value = True
+        #         led_pin_1.value = False
+        #         time.sleep(0.2)
+        #         led_pin_2.value = False
+        #         time.sleep(0.2)
+        #         # Check if the weather icon has changed or condition is no longer met
+        #         if '04' not in weather_data['weather'][0]['icon']:
+        #             break  # Exit the loop if condition is no longer met
+
+        #  # Check if weather icon indicates cloudy (cleary sky, few clouds)
+        # if weather_data['weather'][0]['icon'] in ['01d', '01n', '02d', '02n']:
+        #     # Blinking function for cloudy
+        #     blink_leds_clear()
+
+        #  # Check if weather icon indicates cloudy (scattered, broken, mist)
+        # elif weather_data['weather'][0]['icon'] in ['03d', '03n', '04d', '04n', '50d', '50n']:
+        #     # Blinking function for cloudy
+        #     blink_leds_cloudy()
+        
+        # # Check if weather icon indicates rainy (shower, rain, thunderstorm, snow)
+        # elif weather_data['weather'][0]['icon'] in ['09d', '09n', '10d', '10n', '11d', '11n', '13d', '13n']:
+        #     # Blinking function for rain
+        #     blink_leds_rain()
 
         
         # format weather icon
