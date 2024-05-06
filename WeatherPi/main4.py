@@ -99,8 +99,10 @@ def main():
         # get temperature
         temperature_kelvin = weather_data['main']['temp']
         temperature_celsius = temperature_kelvin - 273.15
+        #get humidity
+        humidity = weather_data['main']['humidity']
         # get wind speed
-        wind = weather_data['wind']['speed']
+        # wind = weather_data['wind']['speed']
         # get weather description
         weather_description = weather_data['weather'][0]['description']
         icon_code = weather_data['weather'][0]['icon']
@@ -147,7 +149,7 @@ def main():
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf", 18)
         
         draw.text((50, 106), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
-        draw.text((50, 126), f"{wind}%", font=font, fill=(255, 255, 255))
+        draw.text((50, 126), f"{humidity}%", font=font, fill=(255, 255, 255))
         draw.text((5, 10), f"{weather_description}",font=font, fill=(255, 255, 255))
         
         # Paste the Icon
