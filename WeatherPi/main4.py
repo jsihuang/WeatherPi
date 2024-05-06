@@ -12,6 +12,15 @@ import time
 #GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and set initial value to low (off)
 #GPIO.setup(10, GPIO.OUT, initial=GPIO.LOW)
 
+# pin = digitalio.DigitalInOut(board.D14)
+# print(pin.value)
+
+# Define GPIO pins for LEDs
+led_pin_1 = digitalio.DigitalInOut(board.D14)  # GPIO 14
+led_pin_1.direction = digitalio.Direction.OUTPUT
+
+led_pin_2 = digitalio.DigitalInOut(board.D15)  # GPIO 15
+led_pin_2.direction = digitalio.Direction.OUTPUT
 
 # Define TFT screen dimensions
 screen_width = 128
@@ -51,6 +60,7 @@ icon_dir = "./Icons"
 # 	GPIO.output(8, GPIO.LOW) # Turn off
 # 	sleep(2) # Sleep for 1 second
 # 	GPIO.output(10, GPIO.LOW) # Turn on
+
 	
 
 # Dictionary mapping weather icon codes to icon URLs
@@ -96,6 +106,17 @@ def main():
         icon_code = weather_data['weather'][0]['icon']
         icon_file = icon_urls.get(icon_code) #[0]
         
+
+        # Blinking functions 
+        if '04' in weather_data['weather'][0]['icon']:
+            led_pin_1.value = True
+            time.sleep(0.2)
+            led_pin_2.value = True
+            time.sleep(0.2)
+            led_pin_1.value = False
+            time.sleep(0.2)
+            led_pin_2.value = False
+            time.sleep(0.2)
         
         # format weather icon
         icon_path = icon_dir + icon_file
