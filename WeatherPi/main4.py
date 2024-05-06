@@ -154,7 +154,7 @@ def main():
         
         # get UI icons
         icon_thermometer = Image.open("./Icons/thermometer_invert.png")
-        icon_thermometer = icon_thermometer.resize((20, 20), Image.BICUBIC)
+        icon_thermometer = icon_thermometer.resize((25, 25), Image.BICUBIC)
         icon_water = Image.open("./Icons/water-droplet_invert.png")
         icon_water = icon_water.resize((20, 20), Image.BICUBIC)
         
@@ -175,7 +175,7 @@ def main():
         # Paste the Icon
         # Image.Image.paste(image, icon, (50, 0))
         image.paste(icon, (0, 20), icon)
-        image.paste(icon_thermometer, (5, 110), icon_thermometer)
+        image.paste(icon_thermometer, (5, 100), icon_thermometer)
         image.paste(icon_water, (5, 130), icon_water)
 
         # Display the image on the TFT screen
