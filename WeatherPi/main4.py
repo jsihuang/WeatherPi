@@ -94,7 +94,7 @@ def main():
         # get weather description
         weather_description = weather_data['weather'][0]['description']
         icon_code = weather_data['weather'][0]['icon']
-        icon_file = icon_urls.get(icon_code)[0]
+        icon_file = icon_urls.get(icon_code) #[0]
         
         
         # format weather icon
