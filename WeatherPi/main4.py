@@ -110,17 +110,14 @@ def main():
         icon_file = icon_urls.get(icon_code) #[0]
         
 
-        # # Check if weather icon indicates '04' (cloudy) weather
-        # if '04' in weather_data['weather'][0]['icon']:  
-        #     # Loop to blink the LEDs for '04' weather
-        #     while True:
-        #         led_pin_1.value = True
-        #         time.sleep(0.2)
-        #         led_pin_2.value = True
-        #         led_pin_1.value = False
-        #         time.sleep(0.2)
-        #         led_pin_2.value = False
-        #         time.sleep(0.2)
+        def blink_leds_clear():
+            for i in range(20):
+                led_pin_1.value = True
+                led_pin_2.value = True
+                time.sleep(2)
+                led_pin_1.value = False
+                led_pin_2.value = False
+                time.sleep(2)
         #         # Check if the weather icon has changed or condition is no longer met
         #         if '04' not in weather_data['weather'][0]['icon']:
         #             break  # Exit the loop if condition is no longer met
@@ -137,33 +134,33 @@ def main():
                 # if weather_data['weather'][0]['icon'] not in ['03d', '03n', '04d', '04n', '50d', '50n']:
                 #     break  # Exit the loop if condition is no longer met
 
-        # def blink_leds_rain()
-        #     while True:
-        #         led_pin_1.value = True
-        #         time.sleep(0.2)
-        #         led_pin_2.value = True
-        #         led_pin_1.value = False
-        #         time.sleep(0.2)
-        #         led_pin_2.value = False
-        #         time.sleep(0.2)
+        def blink_leds_rain():
+            for i in range(20):
+                led_pin_1.value = True
+                time.sleep(0.2)
+                led_pin_2.value = True
+                led_pin_1.value = False
+                time.sleep(0.2)
+                led_pin_2.value = False
+                time.sleep(0.2)
         #         # Check if the weather icon has changed or condition is no longer met
         #         if '04' not in weather_data['weather'][0]['icon']:
         #             break  # Exit the loop if condition is no longer met
 
         #  # Check if weather icon indicates cloudy (cleary sky, few clouds)
-        # if weather_data['weather'][0]['icon'] in ['01d', '01n', '02d', '02n']:
-        #     # Blinking function for cloudy
-        #     blink_leds_clear()
+        if weather_data['weather'][0]['icon'] in ['01d', '01n', '02d', '02n']:
+            # Blinking function for cloudy
+            blink_leds_clear()
 
          # Check if weather icon indicates cloudy (scattered, broken, mist)
         if weather_data['weather'][0]['icon'] in ['03d', '03n', '04d', '04n', '50d', '50n']:
             # Blinking function for cloudy
             blink_leds_cloudy()
         
-        # # Check if weather icon indicates rainy (shower, rain, thunderstorm, snow)
-        # elif weather_data['weather'][0]['icon'] in ['09d', '09n', '10d', '10n', '11d', '11n', '13d', '13n']:
-        #     # Blinking function for rain
-        #     blink_leds_rain()
+        # Check if weather icon indicates rainy (shower, rain, thunderstorm, snow)
+        elif weather_data['weather'][0]['icon'] in ['09d', '09n', '10d', '10n', '11d', '11n', '13d', '13n']:
+            # Blinking function for rain
+            blink_leds_rain()
 
         
         # format weather icon
@@ -173,9 +170,9 @@ def main():
         
         # get UI icons
         icon_thermometer = Image.open("./Icons/thermometer_invert.png")
-        icon_thermometer = icon_thermometer.resize((20, 20), Image.BICUBIC)
+        icon_thermometer = icon_thermometer.resize((30, 30), Image.BICUBIC)
         icon_water = Image.open("./Icons/water-droplet_invert.png")
-        icon_water = icon_water.resize((20, 20), Image.BICUBIC)
+        icon_water = icon_water.resize((30, 30), Image.BICUBIC)
         
         # Create a blank image
         image = Image.new("RGB", (screen_width, screen_height))
@@ -195,7 +192,7 @@ def main():
         # Image.Image.paste(image, icon, (50, 0))
         image.paste(icon, (0, 20), icon)
         image.paste(icon_thermometer, (5, 100), icon_thermometer)
-        image.paste(icon_water, (5, 200), icon_water) #130
+        image.paste(icon_water, (5, 130), icon_water)
 
         # Display the image on the TFT screen
         display.image(image)
@@ -215,4 +212,4 @@ def main():
 # Main loop
 while True:
     main()
-    time.sleep(2)  # Update weather information every 60 seconds
+    time.sleep(2)  # Update weather information every 2 seconds
