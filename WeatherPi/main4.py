@@ -147,6 +147,49 @@ def main():
         #         if '04' not in weather_data['weather'][0]['icon']:
         #             break  # Exit the loop if condition is no longer met
 
+        # format weather icon
+        icon_path = icon_dir + icon_file
+        icon = Image.open(icon_path)
+        icon = icon.resize((80, 80), Image.BICUBIC)
+        
+        # get UI icons
+        icon_thermometer = Image.open("./Icons/thermometer_invert.png")
+        icon_thermometer = icon_thermometer.resize((20, 20), Image.BICUBIC)
+        icon_water = Image.open("./Icons/water-droplet_invert.png")
+        icon_water = icon_water.resize((20, 20), Image.BICUBIC)
+        
+        # Create a blank image
+        image = Image.new("RGB", (screen_width, screen_height))
+        draw = ImageDraw.Draw(image)
+        
+        # Clear the screen
+        draw.rectangle((0, 0, screen_width, screen_height), fill=(100, 100, 100))
+
+        # Render weather information
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf", 18)
+        
+        draw.text((5, 10), f"{weather_description}",font=font, fill=(255, 255, 255))
+        draw.text((50, 106), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
+        draw.text((50, 130), f"{humidity}%", font=font, fill=(255, 255, 255))
+        
+        # Paste the Icon
+        # Image.Image.paste(image, icon, (50, 0))
+        image.paste(icon, (0, 20), icon)
+        image.paste(icon_thermometer, (5, 110), icon_thermometer)
+        image.paste(icon_water, (5, 130), icon_water)
+
+        # Display the image on the TFT screen
+        display.image(image)
+
+        #run blinking function
+        # icon_urls.get(icon_code)[1]
+
+        # Logs
+        print(icon_path)
+        print(f"Temperature: {temperature_celsius:.2f}°C")
+        print(f"Humidity: {humidity}%")
+        print(f"Weather: {weather_description}")
+
         #  # Check if weather icon indicates cloudy (cleary sky, few clouds)
         if weather_data['weather'][0]['icon'] in ['01d', '01n', '02d', '02n']:
             # Blinking function for cloudy
@@ -162,49 +205,6 @@ def main():
             # Blinking function for rain
             blink_leds_rain()
 
-        
-        # format weather icon
-        icon_path = icon_dir + icon_file
-        icon = Image.open(icon_path)
-        icon = icon.resize((80, 80), Image.BICUBIC)
-        
-        # get UI icons
-        icon_thermometer = Image.open("./Icons/thermometer_invert.png")
-        icon_thermometer = icon_thermometer.resize((30, 30), Image.BICUBIC)
-        icon_water = Image.open("./Icons/water-droplet_invert.png")
-        icon_water = icon_water.resize((30, 30), Image.BICUBIC)
-        
-        # Create a blank image
-        image = Image.new("RGB", (screen_width, screen_height))
-        draw = ImageDraw.Draw(image)
-        
-        # Clear the screen
-        draw.rectangle((0, 0, screen_width, screen_height), fill=(100, 100, 100))
-
-        # Render weather information
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf", 18)
-        
-        draw.text((50, 106), f"{temperature_celsius:.2f}°C", font=font, fill=(255, 255, 255))
-        draw.text((50, 126), f"{humidity}%", font=font, fill=(255, 255, 255))
-        draw.text((5, 10), f"{weather_description}",font=font, fill=(255, 255, 255))
-        
-        # Paste the Icon
-        # Image.Image.paste(image, icon, (50, 0))
-        image.paste(icon, (0, 20), icon)
-        image.paste(icon_thermometer, (5, 100), icon_thermometer)
-        image.paste(icon_water, (5, 130), icon_water)
-
-        # Display the image on the TFT screen
-        display.image(image)
-
-        #run blinking function
-        # icon_urls.get(icon_code)[1]
-
-        # Logs
-        print(icon_path)
-        print(f"Temperature: {temperature_celsius:.2f}°C")
-        print(f"Humidity: {humidity}%")
-        print(f"Weather: {weather_description}")
 
     else:
         print("Weather data not found.")
